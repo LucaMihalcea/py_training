@@ -27,7 +27,6 @@ def tri(x):
                 x.insert(0, num)
                 x.pop(idx + 1)
         pos += 1
-        print(x)
     return x
 
 
