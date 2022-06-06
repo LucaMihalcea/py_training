@@ -1,8 +1,11 @@
+from sort_algos import sort
+
+
 def remove_ext(serie, p):
     if serie is None:
         return []
     if len(serie) == 1: return serie
-    tri(serie)
+    sort.naive(serie)
     print(serie)
     tot = len(serie)
     m_p = tot // 2
@@ -19,15 +22,6 @@ def remove_ext(serie, p):
     return serie
 
 
-def tri(x):
-    pos = 0
-    for i in range(len(x)):
-        for idx, num in enumerate(x):
-            if x[pos] > num:
-                x.insert(0, num)
-                x.pop(idx + 1)
-        pos += 1
-    return x
 
 
 
