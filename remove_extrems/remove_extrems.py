@@ -4,14 +4,14 @@ from sort_algos import sort
 def remove_extrems(series, setting):
     if series is None:  # processing of the particular case None
         return []
+
     if len(series) == 1: return series  # processing of the particular case where the series contains a single data
-    data_tested = 0
     median_index, median_value = median(series)
-    for i, _ in enumerate(series):  # loop on each of the data
-        test = series[data_tested] - series[median_index]
-        data_tested += 1
-        if test >= setting:  # test if the data is judged as extreme
-            series.remove(series[data_tested - 1])
+
+    for candidate_index, candidate_value in enumerate(series):  # loop on each of the data
+        if candidate_value - median_value >= setting:  # test if the data is judged as extreme
+            series.pop(candidate_index)
+
     return series  # return the new series without any extreme data
 
 
