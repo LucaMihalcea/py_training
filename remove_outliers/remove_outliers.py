@@ -24,9 +24,12 @@ def is_extreme(median_value: int, candidate: int, distance: int):
 def median(series: List[int]) -> (int, int):
     """
     Compute the median
-    :param series: a list of integers
+    :param series: a list of integers when the series is None or empty then it will raise an error
     :return: the index of the median value and the median value of the series
     """
+    if series is None or len(series) == 0:
+        raise ValueError("series is none or empty")
+
     sort.naive(series)
     total = len(series)
     median_index = total // 2
