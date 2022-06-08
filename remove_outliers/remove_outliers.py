@@ -2,7 +2,7 @@ from sort_algos import sort
 from typing import List
 
 
-def remove_extrems(series: List[int], distance_to_the_median: int) -> List[int]:
+def remove_outliers(series: List[int], distance_to_the_median: int) -> List[int]:
     if series is None:  # processing of the particular case None
         return []
 
@@ -25,7 +25,7 @@ def median(series: List[int]) -> (int, int):
     """
     Compute the median
     :param series: a list of integers
-    :return: the index of the median value, the median value of the series
+    :return: the index of the median value and the median value of the series
     """
     sort.naive(series)
     total = len(series)

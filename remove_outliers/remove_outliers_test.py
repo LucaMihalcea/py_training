@@ -1,5 +1,5 @@
 import unittest
-from remove_extrems import remove_extrems
+from remove_outliers import remove_outliers
 
 
 test_ext = [
@@ -9,9 +9,9 @@ test_ext = [
 ]
 
 
-class remove_ext_test(unittest.TestCase):
+class remove_outliers_test(unittest.TestCase):
     def test_integer_to_digits(self):
         for serie, p,  expected in test_ext:
             with self.subTest(f"input = {serie}"):
-                actual = remove_extrems(serie,p)
+                actual = remove_outliers(serie, p)
                 self.assertListEqual(actual, expected)
