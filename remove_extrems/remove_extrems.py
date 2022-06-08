@@ -6,9 +6,9 @@ def remove_extrems(series, setting):
         return []
     if len(series) == 1: return series  # processing of the particular case where the series contains a single data
     data_tested = 0
-    median_pos, median_value = median(series)
+    median_index, median_value = median(series)
     for i, _ in enumerate(series):  # loop on each of the data
-        test = series[data_tested] - series[median_pos]
+        test = series[data_tested] - series[median_index]
         data_tested += 1
         if test >= setting:  # test if the data is judged as extreme
             series.remove(series[data_tested - 1])
