@@ -1,7 +1,7 @@
 from sort_algos import sort
 
 
-def remove_extrems(series, setting):
+def remove_extrems(series, distance_to_the_median):
     if series is None:  # processing of the particular case None
         return []
 
@@ -9,10 +9,14 @@ def remove_extrems(series, setting):
     median_index, median_value = median(series)
 
     for candidate_index, candidate_value in enumerate(series):  # loop on each of the data
-        if candidate_value - median_value >= setting:  # test if the data is judged as extreme
+        if is_extreme(median_value, candidate_value, distance_to_the_median):  # test if the data is judged as extreme
             series.pop(candidate_index)
 
     return series  # return the new series without any extreme data
+
+
+def is_extreme(median, candidate, distance):
+    return candidate - median >= distance
 
 
 def median(series):
@@ -25,5 +29,3 @@ def median(series):
     total = len(series)
     median_index = total // 2
     return median_index, series[median_index]
-
-
