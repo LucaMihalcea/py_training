@@ -1,11 +1,13 @@
 from sort_algos import sort
+from typing import List
 
 
-def remove_extrems(series, distance_to_the_median):
+def remove_extrems(series: List[int], distance_to_the_median: int) -> List[int]:
     if series is None:  # processing of the particular case None
         return []
 
     if len(series) == 1: return series  # processing of the particular case where the series contains a single data
+
     median_index, median_value = median(series)
 
     for candidate_index, candidate_value in enumerate(series):  # loop on each of the data
@@ -15,11 +17,11 @@ def remove_extrems(series, distance_to_the_median):
     return series  # return the new series without any extreme data
 
 
-def is_extreme(median, candidate, distance):
-    return candidate - median >= distance
+def is_extreme(median_value: int, candidate: int, distance: int):
+    return candidate - median_value >= distance
 
 
-def median(series):
+def median(series: List[int]) -> (int, int):
     """
     Compute the median
     :param series: a list of integers
